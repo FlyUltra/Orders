@@ -19,7 +19,7 @@ public class HikariHandler {
                     "` (name, figureName, orderName, date) " +
                     "VALUES " +
                     "(?, ?, ?, ?)";
-            HikariController.BLOCKSUMO.query(insertSQL,
+            HikariController.DATABASE.query(insertSQL,
                     log.getPlayerName(),
                     log.getFigureName(),
                     log.getOrderName(),

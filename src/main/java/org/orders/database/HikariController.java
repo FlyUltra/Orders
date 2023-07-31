@@ -6,7 +6,7 @@ import org.orders.Main;
 import java.sql.SQLException;
 
 public class HikariController {
-    public static Hikari BLOCKSUMO;
+    public static Hikari DATABASE;
 
     private HikariHandler hikariHandler;
     private Main plugin;
@@ -19,7 +19,7 @@ public class HikariController {
      */
     public boolean setup(Main plugin) {
         this.plugin = plugin;
-        BLOCKSUMO = new Hikari();
+        DATABASE = new Hikari();
         this.hikariHandler = new HikariHandler(plugin);
         create();
         return true;
@@ -52,7 +52,7 @@ public class HikariController {
     }
 
     public Hikari getDatabase() {
-        return BLOCKSUMO;
+        return DATABASE;
     }
 
 }
