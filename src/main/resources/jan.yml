@@ -1,0 +1,30 @@
+id: "jan"
+name: "&6&lJanoš"
+desc:
+  - "&7Ahoj já jsem Janoš!"
+  - "&7Často zapomínám, co jsem chtěl..."
+orders:
+  order1:
+    material: "STONE"
+    desc:
+      - "&7Potřeboval bych si postavit zeď!"
+      - "&7Dej mi 130 kusů vypaleného kamene!"
+      - "&7A dám ti odměnu!"
+    reward: "10:DIAMOND"
+    amount: 130
+  order2:
+    material: "STONE"
+    desc:
+      - "&7Potřeboval bych si postavit zeď!"
+      - "&7Dej mi 20 kusů vypaleného kamene!"
+      - "&7A dám ti odměnu!"
+    reward: "10:DIAMOND"
+    amount: 20
+  order3:
+    material: "STONE"
+    desc:
+      - "&7Potřeboval bych si postavit zeď!"
+      - "&7Dej mi 100 kusů vypaleného kamene!"
+      - "&7A dám ti odměnu!"
+    reward: "10:DIAMOND"
+    amount: 100

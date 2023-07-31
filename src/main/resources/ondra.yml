@@ -1,0 +1,27 @@
+id: "ondra"
+name: "&a&lOndroj"
+desc:
+  - "&7Ahoj já jsem Ondroj!"
+  - "&7Mám 10 dětí"
+orders:
+  order1:
+    material: "STONE"
+    desc:
+      - "Něco"
+      - "Něco"
+    reward: "10:DIAMOND"
+    amount: 100
+  order2:
+    material: "STONE"
+    desc:
+      - "Něco"
+      - "Něco"
+    reward: "10:DIAMOND"
+    amount: 20
+  order3:
+    material: "STONE"
+    desc:
+      - "Něco"
+      - "Něco"
+    reward: "10:DIAMOND"
+    amount: 100

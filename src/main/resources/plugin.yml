@@ -1,0 +1,10 @@
+name: Orders
+main: org.orders.Main
+author: Fly_Ultra
+version: 1.0
+description: Project for recruitment
+api-version: 1.20
+
+commands:
+  orders:
+    aliases: [zakazky]

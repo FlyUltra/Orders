@@ -1,0 +1,15 @@
+date: '2023-07-31'
+
+files:
+  - "jan"
+  - "ondra"
+
+database:
+  enabled: true
+  host: "127.0.0.1"
+  port: 3306
+  dbName: "database"
+  username: "root"
+  password: ""
+  tablePrefix: "orders_"
+  ssl: false
