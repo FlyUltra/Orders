@@ -89,7 +89,6 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
         HikariController.DATABASE.shutdown();
 
     }
@@ -130,12 +129,6 @@ public class Main extends JavaPlugin {
     /*-----------------------------------------------------------------------------*/
 
     public static InventoryManager manager() { return invManager; }
-
-    /*-----------------------------------------------------------------------------*/
-
-    public ConfigAPI cfgAPI() {
-        return config;
-    }
 
     /*-----------------------------------------------------------------------------*/
 

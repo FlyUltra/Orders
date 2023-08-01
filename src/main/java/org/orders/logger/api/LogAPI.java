@@ -11,13 +11,17 @@ public class LogAPI {
 
     public LogAPI() {
         this.plugin = Main.getInstance();
-        onLoad();
     }
 
-    public void onLoad() {
-
-    }
-
+    /**
+     *
+     * When someone complete order, we send log to db
+     *
+     * date is String because we use simple date format, not long for showing date
+     * if someone looks into the log database
+     * they will see the date immediately and won't need to use some converter
+     *
+     */
     public void sendLog(String name, Figure figure, Order order, String date) {
         Log log = new Log(name, figure.getId().toLowerCase(), order.getId().toLowerCase(), date);
         plugin.getHikariHandler().newLog(log);

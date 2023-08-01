@@ -12,6 +12,7 @@ public class HikariHandler {
         this.plugin = plugin;
     }
 
+    /*-----------------------------------------------------------------------------*/
 
     public void newLog(Log log) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {

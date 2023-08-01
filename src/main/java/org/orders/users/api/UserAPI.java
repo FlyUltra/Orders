@@ -1,5 +1,6 @@
 package org.orders.users.api;
 
+import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.orders.Main;
 import org.orders.users.User;
@@ -11,6 +12,7 @@ public class UserAPI {
 
     private Main plugin;
 
+    @Getter
     private HashMap<String, User> userHashMap;
 
     public UserAPI() {
@@ -22,6 +24,14 @@ public class UserAPI {
         userHashMap = new HashMap<>();
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    /**
+     *
+     * Here we look at hashmap if cointains player name
+     * if not we create him new
+     *
+     */
     public void createUser(Player player) {
         User user = getUser(player);
 

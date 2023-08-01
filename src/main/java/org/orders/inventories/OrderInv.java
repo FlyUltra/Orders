@@ -18,6 +18,11 @@ public class OrderInv implements InventoryProvider {
 
     private Player player;
 
+    /**
+     *
+     * Edited init method, where we have + figureId
+     *
+     */
     @Override
     public void init(Player player, String figureId, InventoryContents contents) {
         this.player = player;
@@ -93,7 +98,6 @@ public class OrderInv implements InventoryProvider {
 
     }
 
-
     private ClickableItem getDescription(Figure figure) {
         Order order = figure.getOrders().get(figure.getIdOfSelectedOrder());
 
@@ -107,6 +111,14 @@ public class OrderInv implements InventoryProvider {
         return ClickableItem.empty(itemBuilder.build());
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    /**
+     *
+     * Here we first check if player have amount material we want
+     * if he has we remove it, and use complete method
+     *
+     */
     public void removeMaterial(Player player, Figure figure, Order order) {
         int requiredAmount = order.getAmount();
         int amountInInventory = getAmountInInventory(order, player.getInventory());
@@ -135,6 +147,15 @@ public class OrderInv implements InventoryProvider {
         player.updateInventory();
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    /**
+     *
+     * Here we send log request
+     * We add info about finish into list
+     * And after that we give reward
+     *
+     */
     public void complete(Player player, Figure figure, Order order) {
 
         String date = Utils.formatDate(System.currentTimeMillis());
@@ -148,6 +169,14 @@ public class OrderInv implements InventoryProvider {
 
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    /**
+     *
+     * Here we only give reward
+     * "amount:material"
+     *
+     */
     public void giveReward(Player player, Order order) {
         String reward = order.getReward();
         String[] split = reward.split(":");
@@ -160,6 +189,13 @@ public class OrderInv implements InventoryProvider {
 
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    /**
+     *
+     * Here we count required material in player inventory
+     *
+     */
     public int getAmountInInventory(Order order, Inventory inventory) {
         int amount = 0;
 

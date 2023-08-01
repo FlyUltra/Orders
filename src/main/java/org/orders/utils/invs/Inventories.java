@@ -7,7 +7,11 @@ import org.orders.utils.Utils;
 
 public class Inventories {
 
-
+    /**
+     *
+     * Our order menu getter
+     *
+     */
     public static SmartInventory getOrderMenu(String figureName) {
         return SmartInventory.builder().manager(Main.manager())
                 .id("order_menu")

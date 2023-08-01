@@ -6,6 +6,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.orders.Main;
 import org.orders.orders.Figure;
 import org.orders.orders.Order;
+import org.orders.users.User;
 import org.orders.utils.Utils;
 import org.orders.utils.config.ConfigAPI;
 import org.orders.utils.invs.Inventories;
@@ -25,6 +26,13 @@ public class OrderAPI {
 
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    /**
+     *
+     * Runnable for changing the date we need for our orders in figures
+     *
+     */
     public void runnable() {
         new BukkitRunnable() {
             String lastDate = plugin.getConfig().getString("date");
@@ -42,6 +50,16 @@ public class OrderAPI {
                 plugin.getConfig().set("date", newDate);
                 plugin.saveConfig();
 
+                // We need here to clear users completed orders
+                for (User user : plugin.getUserAPI().getUserHashMap().values()) {
+                    if (user.getFinishedOrders().isEmpty()) {
+                        continue;
+                    }
+                    user.setFinishedOrders(new ArrayList<>());
+                    continue;
+                }
+
+                // Here we set id for figure current order
                 for (Figure figure : figureHashMap.values()) {
                     List<Order> orderList = new ArrayList<>(figure.getOrders().values());
                     Random random = new Random();
@@ -52,10 +70,17 @@ public class OrderAPI {
                 }
 
             }
+            // Every 25m
         }.runTaskTimer(plugin, 0, (20 * 60 * 25));
     }
 
+    /*-----------------------------------------------------------------------------*/
 
+    /**
+     *
+     * Here we load all orders, in our figures
+     *
+     */
     public void onLoad() {
         figureHashMap = new HashMap<>();
 
@@ -83,6 +108,13 @@ public class OrderAPI {
         runnable();
     }
 
+    /*-----------------------------------------------------------------------------*/
+
+    /**
+     *
+     * Method for opening menu with figureID
+     *
+     */
     public void openMenu(Player player, String figureId) {
         Figure figure = getFigure(figureId);
         Inventories.getOrderMenu(figure.getName()).open(player, figureId);

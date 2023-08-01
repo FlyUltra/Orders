@@ -24,6 +24,8 @@ public class OrderCommand implements CommandExecutor {
             Set<String> figuresName = plugin.getOrderAPI().getFigureMap().keySet();
 
             if (figuresName.contains(args[0].toLowerCase())) {
+                //Here we call our method to open menu
+                // args[0] = figureid
                 plugin.getOrderAPI().openMenu(player, args[0].toLowerCase());
                 return true;
             }

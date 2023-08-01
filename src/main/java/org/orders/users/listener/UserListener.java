@@ -15,6 +15,12 @@ public class UserListener implements Listener {
         this.plugin = Main.getInstance();
     }
 
+    /**
+     *
+     * Join event for creating user
+     *
+     * @param event join event, with priority on Monitor
+     */
     @EventHandler(priority = EventPriority.MONITOR)
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
